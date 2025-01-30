@@ -174,6 +174,21 @@ sources/0 = SubResource("TileSetAtlasSource_ern8h")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vuec2"]
 
+[sub_resource type="Animation" id="Animation_g0etc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(416, 266)]
+}
+
 [sub_resource type="Animation" id="Animation_sk0ho"]
 resource_name = "move"
 length = 2.0
@@ -191,7 +206,13 @@ tracks/0/keys = {
 "values": [Vector2(416, 266), Vector2(416, 212)]
 }
 
-[sub_resource type="Animation" id="Animation_g0etc"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5nuj"]
+_data = {
+"RESET": SubResource("Animation_g0etc"),
+"move": SubResource("Animation_sk0ho")
+}
+
+[sub_resource type="Animation" id="Animation_1fxse"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -203,13 +224,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(416, 266)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5nuj"]
-_data = {
-"RESET": SubResource("Animation_g0etc"),
-"move": SubResource("Animation_sk0ho")
+"values": [Vector2(624, 276)]
 }
 
 [sub_resource type="Animation" id="Animation_oh1ls"]
@@ -227,21 +242,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(624, 276), Vector2(512, 276)]
-}
-
-[sub_resource type="Animation" id="Animation_1fxse"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(624, 276)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jmtb1"]
