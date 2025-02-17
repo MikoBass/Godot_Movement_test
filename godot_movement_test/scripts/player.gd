@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 200.0
-const JUMP_VELOCITY = -350.0
+var SPEED = 200.0
+var JUMP_VELOCITY = -350.0
 var jump = 0
 var jump_buffer:bool = false
 var jump_buffer_time:float = .1
@@ -29,7 +29,6 @@ func _physics_process(delta: float) -> void:
 	#allows double jump
 	if Input.is_action_just_pressed("ui_accept") and not is_on_floor() and jump < 1:	
 		jumping()
-		#fix this or smthing so it lets you jump even ater you kinda left the ground
 		
 	#reset double jump
 	if is_on_floor() and jump != 0:
