@@ -7,11 +7,12 @@ var jump = 0
 var jump_buffer:bool = false
 var jump_buffer_time:float = .1
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta * 1.2
+		velocity += get_gravity() * delta * 1.3
 	else:
 		#jumps you if you hit the jump before hit the gound
 		if jump_buffer:
@@ -59,15 +60,15 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("jump")
 		
 		
-		
 	if direction:
 		if velocity.x < SPEED && velocity.x > -SPEED:
-			if Input.is_action_pressed("crouch") && direction > 0:
-				velocity.x = move_toward(velocity.x, SPEED/2, 5)
-			elif Input.is_action_pressed("crouch") && direction < 0:
-				velocity.x = move_toward(velocity.x, -SPEED/2, 5)
+			if Input.is_action_pressed("crouch"):
+				velocity.x = move_toward(velocity.x, (SPEED/2)*direction, 5)
+				if velocity.x > SPEED || velocity.x < -SPEED:
+					velocity.x = (SPEED/2)*direction
 			else:
-				velocity.x += direction * 15
+				velocity.x = move_toward(velocity.x, (SPEED*direction), 15)
+				print(SPEED*direction)
 				if velocity.x > SPEED:
 					velocity.x = SPEED 
 				elif velocity.x < -SPEED:
