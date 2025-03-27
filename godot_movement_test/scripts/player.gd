@@ -56,17 +56,17 @@ func _physics_process(delta: float) -> void:
 				animated_sprite.play("crouch")
 			else:
 				animated_sprite.play("run")
-	else:
-		animated_sprite.play("jump")
+				
+	if Input.is_action_pressed("jump"):
+		if velocity.y < 0:
+			animated_sprite.play("jump")
+	if velocity.y > 50:
+		animated_sprite.play("fall")
 		
 		
 	if direction:
 		if velocity.x < SPEED && velocity.x > -SPEED:
-			if Input.is_action_pressed("crouch"):
-				velocity.x = move_toward(velocity.x, (SPEED/2)*direction, 5)
-				if velocity.x > SPEED || velocity.x < -SPEED:
-					velocity.x = (SPEED/2)*direction
-			else:
+			if !Input.is_action_pressed("crouch"):
 				velocity.x = move_toward(velocity.x, (SPEED*direction), 15)
 				print(SPEED*direction)
 				if velocity.x > SPEED:
@@ -76,6 +76,8 @@ func _physics_process(delta: float) -> void:
 					
 				print(velocity.x)
 				print(direction)
+			else:
+				velocity.x = move_toward(velocity.x, 0, 160)
 	else:
 		direction = 0
 		velocity.x = move_toward(velocity.x, 0, 15)
