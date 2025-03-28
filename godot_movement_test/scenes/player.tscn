@@ -1,15 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://dd44xacsfhnd8"]
+[gd_scene load_steps=35 format=3 uid="uid://dd44xacsfhnd8"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_axx6k"]
 [ext_resource type="Texture2D" uid="uid://4ov2wnynp87o" path="res://assets/sprites/knight.png" id="1_ebuxq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jcr53"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_no6ql"]
 atlas = ExtResource("1_ebuxq")
-region = Rect2(64, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_026tt"]
-atlas = ExtResource("1_ebuxq")
-region = Rect2(192, 160, 32, 32)
+region = Rect2(32, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jdhgx"]
 atlas = ExtResource("1_ebuxq")
@@ -131,10 +127,7 @@ region = Rect2(192, 96, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jcr53")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_026tt")
+"texture": SubResource("AtlasTexture_no6ql")
 }],
 "loop": true,
 "name": &"crouch",
@@ -262,7 +255,7 @@ script = ExtResource("1_axx6k")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_500wl")
-animation = &"dead"
+animation = &"fall"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

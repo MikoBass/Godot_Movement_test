@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("jump"):
 		if velocity.y < 0:
 			animated_sprite.play("jump")
-	if velocity.y > 50:
+	if velocity.y > 185:
 		animated_sprite.play("fall")
 		
 		
@@ -76,12 +76,12 @@ func _physics_process(delta: float) -> void:
 					
 				print(velocity.x)
 				print(direction)
-			else:
-				velocity.x = move_toward(velocity.x, 0, 160)
 	else:
 		direction = 0
 		velocity.x = move_toward(velocity.x, 0, 15)
 	move_and_slide()
+	if Input.is_action_just_pressed("crouch"):
+		velocity.x = 0
 	#do reset buttons here i dont have tme
 	#if InputEventAction.:
 		#reset()
