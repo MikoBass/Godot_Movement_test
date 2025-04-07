@@ -1,6 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://civg25kb2xq6u"]
+[gd_scene load_steps=18 format=3 uid="uid://civg25kb2xq6u"]
 
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hmao6"]
 [ext_resource type="PackedScene" uid="uid://dd44xacsfhnd8" path="res://scenes/player.tscn" id="1_xasy7"]
+[ext_resource type="FontFile" uid="uid://d2sxtw0u3w1uc" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_18t6u"]
 [ext_resource type="Texture2D" uid="uid://dj8dto3sjmsru" path="res://assets/sprites/world_tileset.png" id="2_c0n1h"]
 [ext_resource type="PackedScene" uid="uid://iet5g4q0j8sk" path="res://scenes/platform.tscn" id="3_tnkb7"]
 [ext_resource type="PackedScene" uid="uid://5xue2hbdigl2" path="res://scenes/coin.tscn" id="4_1sct1"]
@@ -254,6 +256,10 @@ _data = {
 [node name="game" type="Node2D"]
 position = Vector2(-144, -288)
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_hmao6")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_5esrm")
 format = 2
@@ -293,7 +299,7 @@ position = Vector2(537, -39)
 position = Vector2(553, -39)
 
 [node name="coin4" parent="coins" instance=ExtResource("4_1sct1")]
-position = Vector2(25, -40)
+position = Vector2(25, -69)
 
 [node name="coin5" parent="coins" instance=ExtResource("4_1sct1")]
 position = Vector2(201, -85)
@@ -320,3 +326,21 @@ autoplay = "nowy"
 
 [node name="slime" parent="." instance=ExtResource("6_nw1ij")]
 position = Vector2(40, 276)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = -1
+offset_left = 238.0
+offset_top = -84.0
+offset_right = 348.0
+offset_bottom = -72.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.111197, 0.111197, 0.111197, 0.286275)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_18t6u")
+theme_override_font_sizes/font_size = 8
+text = "Score: 0
+"
