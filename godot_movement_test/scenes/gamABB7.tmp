@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://civg25kb2xq6u"]
+[gd_scene load_steps=19 format=3 uid="uid://civg25kb2xq6u"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_hmao6"]
 [ext_resource type="PackedScene" uid="uid://dd44xacsfhnd8" path="res://scenes/player.tscn" id="1_xasy7"]
+[ext_resource type="FontFile" uid="uid://d2sxtw0u3w1uc" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_18t6u"]
 [ext_resource type="Texture2D" uid="uid://dj8dto3sjmsru" path="res://assets/sprites/world_tileset.png" id="2_c0n1h"]
 [ext_resource type="PackedScene" uid="uid://b2gwthj6cmbi7" path="res://scenes/gui.tscn" id="2_cy6t5"]
 [ext_resource type="PackedScene" uid="uid://iet5g4q0j8sk" path="res://scenes/platform.tscn" id="3_tnkb7"]
@@ -261,7 +262,6 @@ unique_name_in_owner = true
 script = ExtResource("1_hmao6")
 
 [node name="GUI" parent="GameManager" instance=ExtResource("2_cy6t5")]
-unique_name_in_owner = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_5esrm")
@@ -283,6 +283,20 @@ limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="ScoreLabel" type="Label" parent="player/Camera2D"]
+unique_name_in_owner = true
+offset_left = 82.0
+offset_top = -78.0
+offset_right = 192.0
+offset_bottom = -66.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.111197, 0.111197, 0.111197, 0.286275)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_18t6u")
+theme_override_font_sizes/font_size = 8
+text = "Score: 0
+"
 
 [node name="killzone" parent="." instance=ExtResource("5_di1y3")]
 position = Vector2(494, 401)
@@ -329,3 +343,7 @@ autoplay = "nowy"
 
 [node name="slime" parent="." instance=ExtResource("6_nw1ij")]
 position = Vector2(40, 276)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
+follow_viewport_enabled = true
